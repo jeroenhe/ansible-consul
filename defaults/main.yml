@@ -36,6 +36,8 @@ consul_checksum_file_url: https://releases.hashicorp.com/consul/{{ consul_versio
 consul_force_install: false
 consul_install_remotely: false
 consul_install_from_repo: false
+consul_rolling_restart: false
+consul_rolling_restart_delay_sec: 5
 
 ### Paths
 consul_bin_path: /usr/local/bin
@@ -48,6 +50,7 @@ consul_log_path: "{{ lookup('env', 'CONSUL_LOG_PATH') | default('/var/log/consul
 consul_log_file: "{{ lookup('env', 'CONSUL_LOG_FILE') | default('consul.log', true) }}"
 consul_run_path: /run/consul
 consul_binary: "{{ consul_bin_path }}/consul"
+consul_pid_file: "{{ consul_run_path }}/consul.pid"
 
 ### System user and group
 consul_manage_user: true
